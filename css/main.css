@@ -1,0 +1,527 @@
+@charset "utf-8";
+body{
+
+}
+*{margin: 0;padding: 0;}
+a{text-decoration: none;}
+li{list-style: none;}
+button{border: none;background: none;}
+
+/* cover */
+#cover{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 15;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(100%);
+}
+/* cover on */
+#cover.on{
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+#cover .cover_close{
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    top: 35px;
+    right: 100px;
+}
+#cover .cover_close p{
+    color: #fff;
+    font-weight: bold;
+}
+#cover .cover_close:hover p{
+    color: #8fd3f4;
+}
+#cover .list{
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#cover .list>li>a{
+    font-size: 58px;
+    font-weight: bold;
+    color: #1D663C;
+    text-transform: uppercase;
+    line-height: 100px;
+}
+#cover .list li a:hover{
+    color: #ccc;
+}
+#cover .list2{
+    position: absolute;
+    right: 30%;
+    top: 30%;
+}
+#cover .list2 li p{
+    color: #fff;
+    font-weight: bold;
+    margin-top: 62px;
+}
+#cover .list2 li a{
+    color: #1D663C;
+    font-weight: bold;
+}
+
+/* inner 섹션 */
+.inner{
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+/* inner의 title 스타일 */
+.inner h1{
+    font-size: 96px;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease-in-out;
+    transition-delay: 1s;
+}
+/* 해당 section에 active가 붙으면 타이틀 제목을 왼쪽에서 서서히 날라오게함 */
+.section.active h1{
+    opacity: 1;
+    transform: translateX(0);
+}
+#section1 .inner h1,
+#section2 .inner h1,
+#section3 .inner h1,
+#section4 .inner h1{
+    font-size: 48px;
+    color: #6A8977;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.8s ease-in-out;
+    transition-delay: 1s;
+}
+#section1.active h1,
+#section2.active h1,
+#section3.active h1,
+#section4.active h1{
+    opacity: 1;
+    transform: translateX(0);
+}
+/* svg로 글자 애니메이션 */
+svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 600px;
+}
+.svg1{
+    transform: translate(-49%,-49%);
+    z-index: 1;
+    position: absolute;
+    left: 42%;
+    top: 42%;
+}
+.svg1 path{
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+}
+.svg2{
+    transform: translate(-50%,-50%);
+    z-index: 0;
+}
+.svg2 path{
+    fill: #6A8977;
+}
+/* 주메뉴 */
+nav{
+    position: fixed;
+    top: 30px;
+    right: 300px;
+    z-index: 11;
+    opacity: 1;
+    transform: translateX(200px);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+/* nav on class */
+nav.on{
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+nav ul {
+    display: flex;
+    gap: 50px;
+}
+nav ul li a{
+    color: #6A8977;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+}
+nav ul li a:hover{
+    color: #1D663C;
+}
+/* 메뉴버튼 영역 */
+.btn_menu{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 100;
+    cursor: pointer;
+}
+.btn_menu span{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.btn_menu span:first-child{
+    top: 0;
+}
+/* on class */
+.btn_menu.on span:first-child{
+    top: 10px;
+    transform: rotate(45deg);
+}
+.btn_menu span:nth-child(2){
+    top: 10px;
+}
+/* on class */
+.btn_menu.on span:nth-child(2){
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.btn_menu span:last-child{
+    top: 20px;
+}
+.btn_menu.on span:last-child{
+    top: 10px;
+    transform: rotate(-45deg);
+}
+
+/* 스크롤 버튼 */
+#fullpage .section{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid #888;
+}
+
+/* section0 영역 */
+#section0{
+    background: rgba(106, 137, 119, 0.2);
+}
+#section0 .inner .h1_box{
+   width: 20px;
+}
+#section0 .inner .h1_box img{
+   width: 60px;
+}
+
+/* section1 영역 */
+#section1 {
+    background: rgba(105, 175, 134, 0.7);
+}
+#section1 h1{
+    margin-top: 100px;
+}
+#section1 .inner{
+    position: relative;
+}
+#section1 .inner .sec1_img{
+    margin-top: 100px;
+}
+#section1 .inner .sec1_img ul{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+#section1 .inner .sec1_img ul li{
+    width: 280px;
+    height: 280px;
+    background: #ccc;
+    overflow: hidden;
+}
+
+#section1 .inner .sec1_img ul li .imgbox{
+    width: 100%;
+    height: 100%;
+}
+#section1 .inner .sec1_img ul li .imgbox img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+#section1 .inner .sec1_img li:hover .imgbox img{
+    transform: scale(1.2);
+}
+/* section2 프로필영역 */
+#section2{
+    background: rgba(106, 137, 119, 0.20);
+}
+#section2 .inner .sec2_info{
+    display: flex;
+    margin-top: 100px;
+}
+#section2 .inner .sec2_info .sec2_left{
+    width: 300px;
+}
+#section2 .inner .sec2_info .sec2_left .sec2_imgbox{
+    width: 80%;
+    margin-bottom: 20px;
+}
+#section2 .inner .sec2_info .sec2_left .sec2_imgbox img{
+    width: 100%;
+    margin-top: 40px;
+}
+#section2 .inner .sec2_info .sec2_left{
+    text-align: left;
+}
+#section2 .inner .sec2_info .sec2_left>ul>li>span{
+    display: block;
+    color: #6A8977;
+    font-size: 18px;
+}
+#section2 .inner .sec2_info .sec2_left>ul>li{
+    color: #000;
+    font-family: "Noto Serif KR";
+    font-size: 16px;
+    line-height: 30px;
+    margin-left: 20px;
+}
+/* secthion2에 정보 영역 */
+#section2 .inner .sec2_info .sec2_right{
+    width: 60%;
+    margin: 0 auto;
+}
+#section2 .inner .sec2_info .sec2_right .experience{
+    text-align: start;
+    margin-top: 50px;
+}
+#section2 .inner .sec2_info .sec2_right h3{
+    font-size: 36px;
+    color: #6A8977;
+    margin-bottom: 20px;
+}
+#section2 .inner .sec2_info .sec2_right .experience ul.ezen li{
+    color: #333;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 30px;
+}
+#section2 .inner .sec2_info .sec2_right .skills{
+    text-align: start;
+    margin-top: 20px;
+}
+#section2 .inner .sec2_info .sec2_right .skills>ul>li{
+    font-size: 16px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 6px 0;
+}
+#section2 .inner .sec2_info .sec2_right .skills ul li .list{
+    width: 280px;
+    height: 12px;
+    background: #999;
+}
+#section2 .inner .sec2_info .sec2_right .skills ul li .list .list_1{
+    width: 260px;
+    height: 12px;
+    background: #6A8977;
+}
+/* section3 영역 */
+#section3{
+    background: rgba(105, 175, 134, 0.7);
+}
+#section3 .inner{
+    position: relative;
+}
+#section3 .inner .sec3_cnt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    position: relative;
+}
+/* #section3 .left{
+    width: 60%;
+} */
+#section3 .left .top h2{
+    color: #1D663C;
+    font-family: "Pretendard-Regular";
+    font-size:36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: left;
+}
+#section3 .left .top h3{
+    color: #333;
+    font-family: "Noto Sans KR";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+#section3 .left .top h4{
+    color: #333;
+    font-family: "Noto Sans KR";
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+#section3 .left .middle{
+    margin: 24px 0 36px;
+}
+#section3 .left .middle span{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1D663C;
+}
+#section3 .left .middle p{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-align: left;
+}
+#section3 .left>.bottom> button{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 39px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    background: #FFF;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#section3 .right .bottom button:hover{
+    background: #6A8977;
+    color: #fff;
+}
+/* 이미지영역 */
+#section3 .right .imgbox{
+    width: 90%;
+    position: relative;
+    margin-left: 50px;
+}
+#section3 .right .imgbox img{
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
+    padding: 60px 20px;
+    border-radius: 16px;
+}
+
+
+
+/* section4 영역 */
+#section4{
+    background: rgba(106, 137, 119, 0.30);
+}
+#section4 .inner{
+    position: relative;
+}
+#section4 .inner .sec4_cnt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    position: relative;
+}
+#section4 .info_left .imgbox{
+    width: 90%;
+    position: relative;
+}
+#section4 .info_left .imgbox img{
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
+    padding: 60px 20px;
+    border-radius: 16px;
+}
+/* section4 오른쪽 정보 영역 */
+#section4 .info_right{
+    width: 60%;
+}
+#section4 .info_right .top h2{
+    color: #1D663C;
+    font-family: "Pretendard-Regular";
+    font-size:36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: left;
+}
+#section4 .info_right .top h3{
+    color: #333;
+    font-family: "Noto Sans KR";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+#section4 .info_right .top h4{
+    color: #333;
+    font-family: "Noto Sans KR";
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+#section4 .info_right .middle{
+    margin: 24px 0 36px;
+}
+#section4 .info_right .middle span{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1D663C;
+}
+#section4 .info_right .middle p{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-align: left;
+}
+#section4 .info_right>.bottom>button{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 39px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    background: #FFF;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#section4 .info_right .bottom button:hover{
+    background: #6A8977;
+    color: #fff;
+}
+
+
+
+
+
